@@ -23,10 +23,10 @@ const RouterApp = (props) => {
   return (
     <Router>
       <Switch>
-        <Route exact path="/" component={NotFound} />
+        <Route exact path="/" render={NotFound} />
 
         {/* For unknow/non-defined path */}
-        <Route path="*" component={NotFound} />
+        <Route path="*" render={NotFound} />
       </Switch>
     </Router>
   );

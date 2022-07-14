@@ -26,7 +26,7 @@
        console.log('err:', err);
      })
      await initialMessageCatlog("METADATA_ID");
-     localStorage.setItem("language", "en")
+     localStorage.setItem("language", "English")
      this.setState({ intialLoad: false })
    }
  

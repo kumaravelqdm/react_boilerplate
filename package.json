@@ -16,7 +16,7 @@
     "apollo-boost": "^0.4.9",
     "apollo-link-ws": "^1.0.20",
     "apollo-utilities": "^1.3.4",
-    "atp-login-components": "^0.0.15",
+    "atp-login-components": "^0.0.17",
     "atp-master-layout": "^1.0.24",
     "atp-multilingual": "^1.0.11",
     "atp-stepper": "^1.0.25",

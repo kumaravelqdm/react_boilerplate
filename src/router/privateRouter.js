@@ -1,6 +1,6 @@
 /**
- * @author AUTHOR_NAME
- * @email AUTHOR_EMAIL
+ * @author kumaravel pazhani
+ * @email kumaravel.pazhani@ainqa.com
  * @create date
  * @modify date
  * @desc The private route check wheather the user is logged in or not and also check
@@ -16,31 +16,26 @@
  const PrivateRoute = (routeprops) => {
    const dispatch = useDispatch();
  
-   let { component: Component, path, isIdmEnabled, ...rest } = routeprops;
+   let { render: Component, path, isIdmEnabled, ...rest } = routeprops;
  
    const checkAccess = () => {
      try {
-       if(isIdmEnabled){
-         let data = sessionStorage.getItem("role_data");
+         let data = localStorage.getItem("role_data");
          const accessObj =
-           JSON.parse(atob(data))?.[sessionStorage.getItem("role_name")]
-             ?.access || [];
+           JSON.parse(atob(data))?.[localStorage.getItem("role_name")]
+             ?.accessedRouters || [];
          if (accessObj?.length === 0) {
            throw new Error("Invalid Permissions");
          }
          return (
-           sessionStorage.getItem("role_name") &&
-           accessObj.indexOf(path) > -1 &&
-           sessionStorage.email
+           localStorage.getItem("role_name") &&
+           accessObj.indexOf(path) > -1 
          );
-      }else{
-        return sessionStorage.authToken;
-      }
      } catch (err) {
-       sessionStorage.removeItem("token");
-       sessionStorage.removeItem("role_name");
-       sessionStorage.removeItem("role_data");
-       sessionStorage.removeItem("remove_item");
+       localStorage.removeItem("token");
+       localStorage.removeItem("role_name");
+       localStorage.removeItem("role_data");
+       localStorage.removeItem("remove_item");
        return false;
      }
    };
